@@ -9,8 +9,8 @@ const cors = require ('cors')
 const helmet = require ('helmet')
 const compression = require ('compression')
 const http = require ('http')
-
-const {port,allowedDomains} = configration;
+const port = 5000;
+const {allowedDomains} = configration;
 
 const server = http.createServer(app);
 
@@ -42,7 +42,7 @@ app.use("/api/register",registerRoute)
 app.use("/api/login",loginRoute)
 
 server.listen(port, () => {
-    console.log("server started");
+    console.log(`server started on ${port}`);
 })
 
 

@@ -40,7 +40,7 @@ const deleteImage = (req, resp) => {
         } else {
             result.map((data) => {
                 try {
-                    fs.unlinkSync(`../public/assets/demo/images/gallery/${data.image}`);
+                    fs.unlinkSync(`../assets/${data.image}`);
                     con.query("DELETE FROM image WHERE id IN (?)", [arrayIds], (err, result) => {
                         if (err) console.log(err);
                     });

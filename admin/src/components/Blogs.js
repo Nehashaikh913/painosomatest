@@ -625,7 +625,7 @@ function Blogs() {
                                             let image = new FormData();
                                             image.append("image", blobInfo.blob());
                                             try {
-                                                const { data } = await Axios.post(`${API_URL}api/image`, image);
+                                                const { data } = await Axios.post(`${API_URL}/image`, image);
                                                 success(`https://newlandpharmapvt.com/assets/${data}`);
                                             } catch (error) {
                                                 console.log(error);
@@ -734,7 +734,7 @@ function Blogs() {
                                     <AccordionTab header="Image Section">
                                         <TabView>
                                             <TabPanel header="upload">
-                                                <FileUpload auto url={`${API_URL}api/image`} className="mb-5" onUpload={onImageUpload} name="image[]" accept="image/*" maxFileSize={1000000} />
+                                                <FileUpload auto url={`${API_URL}/image`} className="mb-5" onUpload={onImageUpload} name="image[]" accept="image/*" maxFileSize={1000000} />
                                             </TabPanel>
                                             <TabPanel header="Gallery">
                                                 <Button label="select image" icon="pi pi-check" iconPos="right" onClick={(e) => openImageGallery2(e)} />

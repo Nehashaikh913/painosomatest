@@ -50,6 +50,7 @@ function Categories() {
     const getAllCategories = async () => {
         // fetching all categories list
         const blogCategory = await getCategory();
+        console.log(blogCategory)
         setCategoryList(blogCategory)
     };
 

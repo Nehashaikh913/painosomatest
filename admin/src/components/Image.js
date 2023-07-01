@@ -223,7 +223,7 @@ function Gallery() {
                             <div className="col-12">
                                 <div className="p-fluid">
                                     <div className="field">
-                                    <FileUpload url={`${API_URL}api/image`} className="mb-5" name="image[]" multiple customUpload uploadHandler={myUploader} accept="image/*" maxFileSize={1000000} />
+                                    <FileUpload url={`${API_URL}/image`} className="mb-5" name="image[]" multiple customUpload uploadHandler={myUploader} accept="image/*" maxFileSize={1000000} />
                                     </div>
                                 </div>
                             </div>

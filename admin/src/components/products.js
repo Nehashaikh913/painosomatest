@@ -351,7 +351,7 @@ function Products() {
             event.files.map((item) => {
                 formData.append("image[]", item)
             })
-            const res = await Axios.post(`${API_URL}api/image`, formData)
+            const res = await Axios.post(`${API_URL}/image`, formData)
             fetchImages();
             setProductDialog(false)
             toast.current.show({ severity: "success", summary: "Successfully", detail: `${res.data}`, life: 3000 })
@@ -575,7 +575,7 @@ function Products() {
                                     <AccordionTab header="Image Section">
                                         <TabView>
                                             <TabPanel header="upload">
-                                                <FileUpload url={`${API_URL}api/image`} className="mb-5" name="image[]" multiple customUpload uploadHandler={myUploader} accept="image/*" maxFileSize={1000000} />
+                                                <FileUpload url={`${API_URL}/image`} className="mb-5" name="image[]" multiple customUpload uploadHandler={myUploader} accept="image/*" maxFileSize={1000000} />
                                             </TabPanel>
                                             <TabPanel header="Gallery">
                                                 <Button label="select image" icon="pi pi-check" iconPos="right" onClick={(e) => openImageGallery2(e)} />
