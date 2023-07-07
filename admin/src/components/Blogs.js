@@ -297,7 +297,7 @@ function Blogs() {
 
     
     const viewBlog = (rowData) =>{
-        window.location.href = (`https://newlandpharmapvt.com/blog/${rowData.slug}`)
+        window.open(`https://newlandpharmapvt.com/blog/${rowData.slug}`, "_blank");
     }
 
     const deleteBlogFunction = async (data) => {

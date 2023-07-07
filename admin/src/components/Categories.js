@@ -40,6 +40,7 @@ function Categories() {
     const [titleCount, ChangeTitleCount] = useState(0);
     const [textAreaCount, ChangeTextAreaCount] = useState(0);
     const [seotitleCount, setSeoTitleCount] = useState(0);
+    const [loading, setLoading] = useState(true);
 
     useEffect(() => {
         getAllCategories();
@@ -51,6 +52,7 @@ function Categories() {
         // fetching all categories list
         const blogCategory = await getCategory();
         setCategoryList(blogCategory)
+        setLoading(false)
     };
 
     async function getParentCategory() {
@@ -305,6 +307,7 @@ function Categories() {
                         paginator
                         rows={25}
                         rowsPerPageOptions={[5, 10, 25]}
+                        loading={loading}
                         className="datatable-responsive"
                         paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
                         currentPageReportTemplate="Showing {first} to {last} of {totalRecords} categories"

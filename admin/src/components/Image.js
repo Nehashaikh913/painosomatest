@@ -25,6 +25,7 @@ function Gallery() {
     const [productDialog, setProductDialog] = useState(false);
     const [deleteProductDialog, setDeleteProductDialog] = useState(false);
     const [deleteProductsDialog, setDeleteProductsDialog] = useState(false);
+    const [loading, setLoading] = useState(true);
 //single
     const [image, setImage] = useState(emptyImage);
     const [selectedBlogs, setSelectedBlogs] = useState(null);
@@ -36,6 +37,7 @@ function Gallery() {
     const fetchData = async () => {
         const galleryimages = await getGalleryApi()
         setImages(galleryimages)
+        setLoading(false)
     }
 
     useEffect(() => {
@@ -202,6 +204,7 @@ function Gallery() {
                         dataKey="id"
                         paginator
                         rows={10}
+                        loading={loading}
                         rowsPerPageOptions={[5, 10, 25]}
                         className="datatable-responsive"
                         paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"

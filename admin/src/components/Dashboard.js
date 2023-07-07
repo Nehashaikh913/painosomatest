@@ -36,6 +36,7 @@ const lineData = {
 const Dashboard = (props) => {
     const [blogs, setBlogs] = useState(null);
     const [lineOptions, setLineOptions] = useState(null);
+    const [loading, setLoading] = useState(true);
     const [stastics, setStastics] = useState({
         blogs: 0,
         products: 0,
@@ -109,7 +110,8 @@ const Dashboard = (props) => {
 
     useEffect(() => {
         blogDesc();
-        getAllData();      
+        getAllData();  
+        setLoading(false)    
     }, []);
 
     const blogDesc = async () =>{
@@ -214,7 +216,7 @@ const Dashboard = (props) => {
             <div className="col-12 xl:col-6">
                 <div className="card">
                     <h5>Recent Blogs</h5>
-                    <DataTable value={blogs} rows={5} paginator responsiveLayout="scroll">
+                    <DataTable value={blogs} rows={5}  loading={loading} paginator responsiveLayout="scroll">
                         <Column header="Image" body={(data) => <img className="shadow-2" src={`https://newlandpharmapvt.com/assets/${data.feature_image}`} alt={data.feature_image} width="50" />} />
                         <Column field="blog_title" header="Blog title" sortable style={{ width: '35%' }} />
                         <Column field="blogdate" header="Date" sortable style={{ width: '35%' }} body={(data) => {

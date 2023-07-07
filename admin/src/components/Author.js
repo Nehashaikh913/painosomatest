@@ -46,6 +46,7 @@ function Author() {
     const [selectedBlogs, setSelectedBlogs] = useState(null);
     const [submitted,setSubmitted] = useState(false);
     const [globalFilter, setGlobalFilter] = useState(null);
+    const [loading, setLoading] = useState(true);
     const [file, setFile] = useState(null);
     const toast = useRef(null);
     const dt = useRef(null);
@@ -55,6 +56,7 @@ function Author() {
     async function fetchData() {
         const blogData = await getAuthorsApi();
         setBlogs(blogData);
+        setLoading(false)
     }
 
     useEffect(() => {
@@ -158,7 +160,7 @@ function Author() {
     };
 
     const viewAuthor = (rowData) =>{
-        window.location.href = (`https://newlandpharmapvt.com/author/${rowData.slug}`)
+        window.open(`https://newlandpharmapvt.com/author/${rowData.slug}`, "_blank");
     }
 
     const deleteBlogFunction = async (data) => {
@@ -304,6 +306,7 @@ function Author() {
                         dataKey="id"
                         paginator
                         rows={25}
+                        loading={loading}
                         rowsPerPageOptions={[5, 10, 25]}
                         className="datatable-responsive"
                         paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"

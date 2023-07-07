@@ -65,7 +65,7 @@ function Products() {
     const [globalFilter, setGlobalFilter] = useState(null);
     const [parentCategory, setParentCategory] = useState([null]);
     const [faqDialog, setFaqDialog] = useState(false);
-    
+    const [loading, setLoading] = useState(true);
     const [subCategory, setSubCategory] = useState([{ name: "none", value: "none" }]);
     const toast = useRef(null);
     const dt = useRef(null);
@@ -107,6 +107,7 @@ function Products() {
     const getAllProducts = async () =>{
         const res = await getproductsApi()
         setAllProducts(res)
+        setLoading(false)
     }
 
     async function fetchImages() {
@@ -317,7 +318,7 @@ function Products() {
     };
 
     const viewProduct = (rowData) =>{
-        window.location.href = (`https://newlandpharmapvt.com/${rowData.product_slug}`)
+        window.open(`https://newlandpharmapvt.com/${rowData.product_slug}`, "_blank");
     }
 
     const deleteBlogFunction = (data) => {
@@ -518,6 +519,7 @@ function Products() {
                         dataKey="id"
                         paginator
                         rows={25}
+                        loading={loading}
                         rowsPerPageOptions={[5, 10, 25]}
                         className="datatable-responsive"
                         paginatorTemplate="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
