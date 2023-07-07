@@ -45,7 +45,6 @@ export const Login = (props) => {
 
     const handleLogin = async () => {
         const value = await appLogin(login);
-        console.log(value)
         if (value?.data.message) {
             toast.current.show({ severity: "error", summary: "Error", detail: `${value?.data.message}`, life: 3000 });
         }

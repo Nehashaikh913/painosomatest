@@ -2,7 +2,6 @@ import { axiosApi } from "../config";
 
 export const login = async (data) => {
     let response;
-    console.log(data)
     try {
         response = await axiosApi.post('/login',data) 
     } catch (error) {
