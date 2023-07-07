@@ -133,7 +133,6 @@ const Dashboard = (props) => {
         })
     }
 
-    console.log(stastics)
 
     useEffect(() => {
         if (props.colorMode === 'light') {

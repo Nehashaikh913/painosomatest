@@ -85,7 +85,7 @@ export const Login = (props) => {
                     </span>
                 </div>
                 <Button onClick={handleLogin} className='my-4 w-full' label='Login'></Button>
-                <Button onClick={() => { setIsRegister(true) }} label="Register Here" className="p-button-secondary my-2" />
+                {/* <Button onClick={() => { setIsRegister(true) }} label="Register Here" className="p-button-secondary my-2" /> */}
                 {/* <h1>{loginstatus}</h1> */}
             </div>
                 :

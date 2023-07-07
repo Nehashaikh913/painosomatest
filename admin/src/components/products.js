@@ -316,6 +316,10 @@ function Products() {
         deleteBlogFunction(product.id);
     };
 
+    const viewProduct = (rowData) =>{
+        window.location.href = (`https://newlandpharmapvt.com/${rowData.product_slug}`)
+    }
+
     const deleteBlogFunction = (data) => {
         let selectedIds = typeof data === "number" ? data : data.map((res) => res.id);
         deleteProductsApi(selectedIds)
@@ -457,7 +461,7 @@ function Products() {
             <div className="actions">
                 <Button icon="pi pi-pencil" className="p-button-rounded p-button-primary mr-2" onClick={() => editProduct(rowData)} />
                 <Button icon="pi pi-trash" className="p-button-rounded p-button-warning mr-2" onClick={() => confirmDeleteProduct(rowData)} />
-                <Button icon="pi pi-eye" className="p-button-rounded p-button-success" onClick={() => confirmDeleteProduct(rowData)} />
+                <Button icon="pi pi-eye" className="p-button-rounded p-button-success" onClick={() => viewProduct(rowData)} />
             </div>
         );
     };

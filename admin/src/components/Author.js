@@ -157,6 +157,10 @@ function Author() {
         setDeleteProductDialog(true);
     };
 
+    const viewAuthor = (rowData) =>{
+        window.location.href = (`https://newlandpharmapvt.com/author/${rowData.slug}`)
+    }
+
     const deleteBlogFunction = async (data) => {
         let selectedIds = typeof data === "number" ? data : data.map((res) => res.id);
         await deleteAuthorApi(selectedIds)
@@ -249,7 +253,7 @@ function Author() {
             <div className="actions">
                 <Button icon="pi pi-pencil" className="p-button-rounded p-button-primary mr-2" onClick={() => editProduct(rowData)} />
                 <Button icon="pi pi-trash" className="p-button-rounded p-button-danger mr-2" onClick={() => confirmDeleteProduct(rowData)} />
-                <Button icon="pi pi-eye" className="p-button-rounded p-button-success" onClick={() => confirmDeleteProduct(rowData)} />
+                <Button icon="pi pi-eye" className="p-button-rounded p-button-success" onClick={() => viewAuthor(rowData)} />
             </div>
         );
     };

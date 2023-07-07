@@ -9,7 +9,5 @@ export const getblogdescApi = async () => {
         return error
     }
 
-    console.log(response)
-
     return response;
 }

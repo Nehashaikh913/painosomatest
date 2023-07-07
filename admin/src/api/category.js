@@ -9,8 +9,6 @@ export const getCategory = async () => {
         return error
     }
 
-    console.log(response)
-
     return response;
 }
 
@@ -22,8 +20,6 @@ export const getParentCategoryApi = async () => {
     } catch (error) {
         return error
     }
-    console.log(response)
-
     return response;
 }
 
@@ -35,8 +31,6 @@ export const getSubCategoryApi = async () => {
     } catch (error) {
         return error
     }
-    console.log(response)
-
     return response;
 }
 

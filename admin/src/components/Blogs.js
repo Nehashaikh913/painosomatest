@@ -1,3 +1,4 @@
+
 import React, { useState, useEffect, useRef } from "react";
 import { Editor } from "@tinymce/tinymce-react";
 import { DataTable } from "primereact/datatable";
@@ -294,6 +295,11 @@ function Blogs() {
         setDeleteProductDialog(true);
     };
 
+    
+    const viewBlog = (rowData) =>{
+        window.location.href = (`https://newlandpharmapvt.com/blog/${rowData.slug}`)
+    }
+
     const deleteBlogFunction = async (data) => {
         let selectedIds = typeof data === "number" ? data : data.map((res) => res.id);
         await deleteBlogApi(selectedIds)
@@ -493,7 +499,7 @@ function Blogs() {
             <div className="actions">
                 <Button icon="pi pi-pencil" className="p-button-rounded p-button-primary mr-2" onClick={() => editProduct(rowData)} />
                 <Button icon="pi pi-trash" className="p-button-rounded p-button-danger mt-2 mr-2" onClick={() => confirmDeleteProduct(rowData)} />
-                <Button icon="pi pi-eye" className="p-button-rounded p-button-success mt-2" />
+                <Button icon="pi pi-eye" className="p-button-rounded p-button-success mt-2" onClick={() => viewBlog(rowData)} />
             </div>
         );
     };
