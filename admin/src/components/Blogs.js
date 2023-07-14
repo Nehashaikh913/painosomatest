@@ -275,14 +275,11 @@ function Blogs() {
             subCategoryArray.push(_blog.subcategory);
         }
         if (_blog.feature_image.includes(",")) {
-            console.log(_blog.feature_image)
             var imageArray = _blog.feature_image.split(",");
         } else {
-            console.log(_blog.feature_image)
             var imageArray = [];
             imageArray.push(_blog.feature_image);
         }
-        console.log(imageArray)
         _blog["parentcategory"] = parentCategoryArray;
         _blog["subcategory"] = subCategoryArray;
         _blog["feature_image"] = imageArray;
@@ -290,7 +287,6 @@ function Blogs() {
         setBlog(_blog);
         setImages2(_blog["feature_image"] )
         setProductDialog(true);
-        console.log(_blog)
     };
 
     const confirmDeleteProduct = (blog) => {
