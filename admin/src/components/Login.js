@@ -80,7 +80,8 @@ export const Login = (props) => {
                 </div>
                 <div className='p-fluid'>
                     <span className="p-float-label">
-                        <Password value={login.password} name='password' onChange={(e) => handleLoginFunction(e)} toggleMask />
+                        <InputText id='pass' value={login.password} name='password' onChange={(e) => handleLoginFunction(e)} />
+                        <label htmlFor="pass">Password</label>
                     </span>
                 </div>
                 <Button onClick={handleLogin} className='my-4 w-full' label='Login'></Button>

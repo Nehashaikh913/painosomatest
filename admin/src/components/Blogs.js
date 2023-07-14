@@ -15,7 +15,6 @@ import { TabView, TabPanel } from "primereact/tabview";
 import { Dialog } from "primereact/dialog";
 import { InputTextarea } from "primereact/inputtextarea";
 import { InputText } from "primereact/inputtext";
-import { apiService } from "../service/apiServices";
 import { Calendar } from "primereact/calendar";
 import Axios from "axios";
 import classNames from "classnames";
@@ -276,18 +275,22 @@ function Blogs() {
             subCategoryArray.push(_blog.subcategory);
         }
         if (_blog.feature_image.includes(",")) {
+            console.log(_blog.feature_image)
             var imageArray = _blog.feature_image.split(",");
         } else {
+            console.log(_blog.feature_image)
             var imageArray = [];
             imageArray.push(_blog.feature_image);
         }
+        console.log(imageArray)
         _blog["parentcategory"] = parentCategoryArray;
         _blog["subcategory"] = subCategoryArray;
         _blog["feature_image"] = imageArray;
         _blog["blogdate"] = new Date(blog.blogdate);
         setBlog(_blog);
-        setImages2([])
+        setImages2(_blog["feature_image"] )
         setProductDialog(true);
+        console.log(_blog)
     };
 
     const confirmDeleteProduct = (blog) => {
@@ -298,6 +301,11 @@ function Blogs() {
     
     const viewBlog = (rowData) =>{
         window.open(`https://newlandpharmapvt.com/blog/${rowData.slug}`, "_blank");
+    }
+
+    const clickToCopy = (rowData)=>{
+        navigator.clipboard.writeText(`https://newlandpharmapvt.com/blog/${rowData.slug}`)
+        toast.current.show({ severity: "info", summary: "Successfully Copied", detail: `${rowData.slug}`, life: 3000 });
     }
 
     const deleteBlogFunction = async (data) => {
@@ -497,9 +505,10 @@ function Blogs() {
     const actionBodyTemplate = (rowData) => {
         return (
             <div className="actions">
-                <Button icon="pi pi-pencil" className="p-button-rounded p-button-primary mr-2" onClick={() => editProduct(rowData)} />
+                <Button icon="pi pi-pencil" className="p-button-rounded p-button-warning mr-2" onClick={() => editProduct(rowData)} />
                 <Button icon="pi pi-trash" className="p-button-rounded p-button-danger mt-2 mr-2" onClick={() => confirmDeleteProduct(rowData)} />
-                <Button icon="pi pi-eye" className="p-button-rounded p-button-success mt-2" onClick={() => viewBlog(rowData)} />
+                <Button icon="pi pi-eye" className="p-button-rounded p-button-success my-2 mr-2" onClick={() => viewBlog(rowData)} />
+                <Button icon="pi pi-copy" className="p-button-rounded p-button-primary" onClick={() => clickToCopy(rowData)} />
             </div>
         );
     };

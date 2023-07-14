@@ -8,9 +8,7 @@ import { Toolbar } from "primereact/toolbar";
 import { InputTextarea } from "primereact/inputtextarea";
 import { Dialog } from "primereact/dialog";
 import { InputText } from "primereact/inputtext";
-import { apiService } from "../service/apiServices";
 import { Dropdown } from "primereact/dropdown";
-import Axios from "axios";
 import { getCategory, getParentCategoryApi, addCategoryApi, updateCategoryApi, deleteCategoryApi, statusCategoryApi } from "../api/category";
 
 function Categories() {

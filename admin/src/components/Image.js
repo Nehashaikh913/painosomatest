@@ -7,8 +7,6 @@ import { FileUpload } from "primereact/fileupload";
 import { Toolbar } from "primereact/toolbar";
 import { Dialog } from "primereact/dialog";
 import { InputText } from "primereact/inputtext";
-import { apiService } from "../service/apiServices";
-import Axios from "axios";
 import { getGalleryApi ,addGalleryApi, deleteGalleryApi} from "../api/gallery";
 import { API_URL } from "../config";
 
@@ -149,6 +147,7 @@ function Gallery() {
 
     const clickToCopy = (rowData)=>{
         navigator.clipboard.writeText(`https://newlandpharmapvt.com/assets/${rowData.image}`)
+        toast.current.show({ severity: "info", summary: "Successfully Copied", detail: `${rowData.image}`, life: 3000 });
     }
 
     const actionBodyTemplate = (rowData) => {

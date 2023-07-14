@@ -2,7 +2,6 @@ import React, { useState, useEffect, useRef } from 'react';
 import { Chart } from 'primereact/chart';
 import { DataTable } from 'primereact/datatable';
 import { Column } from 'primereact/column';
-import { apiService } from '../service/apiServices';
 import { format } from 'date-fns'
 import { getblogdescApi } from '../api/dashboard';
 import { getblogApi } from '../api/blog';

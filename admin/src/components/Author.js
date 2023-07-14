@@ -10,8 +10,6 @@ import { Toolbar } from "primereact/toolbar";
 import { TabView, TabPanel } from "primereact/tabview";
 import { Dialog } from "primereact/dialog";
 import { InputText } from "primereact/inputtext";
-import Axios from "axios";
-import { apiService } from "../service/apiServices";
 import { Accordion, AccordionTab } from "primereact/accordion";
 import { getAuthorsApi ,addAuthorApi ,updateAuthorApi,deleteAuthorApi,statusAuthorApi} from "../api/author";
 import { API_URL } from "../config";
@@ -163,6 +161,11 @@ function Author() {
         window.open(`https://newlandpharmapvt.com/author/${rowData.slug}`, "_blank");
     }
 
+    const clickToCopy = (rowData)=>{
+        navigator.clipboard.writeText(`https://newlandpharmapvt.com/author/${rowData.slug}`)
+        toast.current.show({ severity: "info", summary: "Successfully Copied", detail: `${rowData.slug}`, life: 3000 });
+    }
+
     const deleteBlogFunction = async (data) => {
         let selectedIds = typeof data === "number" ? data : data.map((res) => res.id);
         await deleteAuthorApi(selectedIds)
@@ -255,7 +258,8 @@ function Author() {
             <div className="actions">
                 <Button icon="pi pi-pencil" className="p-button-rounded p-button-primary mr-2" onClick={() => editProduct(rowData)} />
                 <Button icon="pi pi-trash" className="p-button-rounded p-button-danger mr-2" onClick={() => confirmDeleteProduct(rowData)} />
-                <Button icon="pi pi-eye" className="p-button-rounded p-button-success" onClick={() => viewAuthor(rowData)} />
+                <Button icon="pi pi-eye" className="p-button-rounded p-button-success mr-2" onClick={() => viewAuthor(rowData)} />
+                <Button icon="pi pi-copy" className="p-button-rounded p-button-primary" onClick={() => clickToCopy(rowData)} />
             </div>
         );
     };

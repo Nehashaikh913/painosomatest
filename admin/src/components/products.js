@@ -382,6 +382,11 @@ function Products() {
         onInputChange(e, name, selectedImages);
     };
 
+    const clickToCopy = (rowData)=>{
+        navigator.clipboard.writeText(`https://newlandpharmapvt.com/${rowData.product_slug}`)
+        toast.current.show({ severity: "info", summary: "Successfully Copied", detail: `${rowData.product_slug}`, life: 3000 });
+    }
+
     const confirmDeleteSelected = () => {
         setDeleteProductsDialog(true);
     };
@@ -460,9 +465,10 @@ function Products() {
     const actionBodyTemplate = (rowData) => {
         return (
             <div className="actions">
-                <Button icon="pi pi-pencil" className="p-button-rounded p-button-primary mr-2" onClick={() => editProduct(rowData)} />
-                <Button icon="pi pi-trash" className="p-button-rounded p-button-warning mr-2" onClick={() => confirmDeleteProduct(rowData)} />
-                <Button icon="pi pi-eye" className="p-button-rounded p-button-success" onClick={() => viewProduct(rowData)} />
+                <Button icon="pi pi-pencil" className="p-button-rounded p-button-warning mr-2" onClick={() => editProduct(rowData)} />
+                <Button icon="pi pi-trash" className="p-button-rounded p-button-danger mr-2" onClick={() => confirmDeleteProduct(rowData)} />
+                <Button icon="pi pi-eye" className="p-button-rounded p-button-success mr-2" onClick={() => viewProduct(rowData)} />
+                <Button icon="pi pi-copy" className="p-button-rounded p-button-primary" onClick={() => clickToCopy(rowData)} />
             </div>
         );
     };
