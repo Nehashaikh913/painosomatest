@@ -10,7 +10,7 @@ window.location.hostname.match(
 );
 const API_URL = isLocalhost
 ? "http://localhost:5000/api"
-: "https://server.newlandpharmapvt.com/api";
+: "https://server.painosoma.com/api";
 
 const axiosApi = axios.create({
 withCredentials: false,

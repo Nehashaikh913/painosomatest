@@ -31,6 +31,7 @@ function Products() {
         product_name: "",
         product_price: "",
         product_slug: "",
+        product_link: "",
         strength: "",
         parentcategory: null,
         subcategory: "",
@@ -227,6 +228,7 @@ function Products() {
         formData.append("heading", data.heading);
         formData.append("product_price", data.product_price);
         formData.append("product_slug", data.product_slug);
+        formData.append("product_link", data.product_link);
         formData.append("strength", data.strength);
         formData.append("parentcategory", data.parentcategory);
         formData.append("subcategory", data.subcategory);
@@ -318,7 +320,7 @@ function Products() {
     };
 
     const viewProduct = (rowData) =>{
-        window.open(`https://newlandpharmapvt.com/${rowData.product_slug}`, "_blank");
+        window.open(`https://painosoma.com/${rowData.product_slug}`, "_blank");
     }
 
     const deleteBlogFunction = (data) => {
@@ -383,7 +385,7 @@ function Products() {
     };
 
     const clickToCopy = (rowData)=>{
-        navigator.clipboard.writeText(`https://newlandpharmapvt.com/${rowData.product_slug}`)
+        navigator.clipboard.writeText(`https://painosoma.com/${rowData.product_slug}`)
         toast.current.show({ severity: "info", summary: "Successfully Copied", detail: `${rowData.product_slug}`, life: 3000 });
     }
 
@@ -594,7 +596,7 @@ function Products() {
                                                 {images2?.map((item, ind) => {
                                                     return (
                                                         <div className="col-4" key={ind}>
-                                                            <img src={`https://newlandpharmapvt.com/assets/${item}`} alt={item} style={{width:"100%"}} className="mt-0 mx-auto mb-5 block shadow-2" />
+                                                            <img src={`https://painosoma.com/assets/${item}`} alt={item} style={{width:"100%"}} className="mt-0 mx-auto mb-5 block shadow-2" />
                                                         </div>
                                                     );
                                                 })}
@@ -640,6 +642,10 @@ function Products() {
                                             <span className="p-float-label mb-5 mt-4">
                                                 <InputText type="text" value={product.product_slug} onChange={(e) => onInputChange(e, "product_slug")} style={{ fontSize: "12px" }} />
                                                 <label htmlFor="product_slug">product slug</label>
+                                            </span>
+                                            <span className="p-float-label mb-5 mt-4">
+                                                <InputText type="text" value={product.product_link} onChange={(e) => onInputChange(e, "product_link")} style={{ fontSize: "12px" }} />
+                                                <label htmlFor="product_link">Product Affiliat Link</label>
                                             </span>
                                             <MultiSelect options={parentCategory} className="mb-5" value={product.parentcategory} onChange={(e) => onInputChange(e, "parentcategory")} optionLabel="name" placeholder="Select a parent category" display="chip" />
                                         </div>
@@ -778,7 +784,7 @@ function Products() {
                                             <Checkbox className="cursor-pointer" inputId={`cb3${index}`} value={`${item.image}`} onChange={(e) => onImageChange2(e, "image")} checked={images2.includes(`${item.image}`)}></Checkbox>
                                             <label htmlFor={`cb3${index}`} className="p-checkbox-label">
                                                 <img
-                                                    src={`https://newlandpharmapvt.com/assets/${item.image}`}
+                                                    src={`https://painosoma.com/assets/${item.image}`}
                                                     alt={item.alt_title}
                                                     style={{ width: "100%", height: "200px", objectFit: "cover", cursor: "pointer" }}
                                                     className="mt-0 mx-auto mb-5 block shadow-2"

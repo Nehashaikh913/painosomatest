@@ -296,11 +296,11 @@ function Blogs() {
 
     
     const viewBlog = (rowData) =>{
-        window.open(`https://newlandpharmapvt.com/blog/${rowData.slug}`, "_blank");
+        window.open(`https://painosoma.com/blog/${rowData.slug}`, "_blank");
     }
 
     const clickToCopy = (rowData)=>{
-        navigator.clipboard.writeText(`https://newlandpharmapvt.com/blog/${rowData.slug}`)
+        navigator.clipboard.writeText(`https://painosoma.com/blog/${rowData.slug}`)
         toast.current.show({ severity: "info", summary: "Successfully Copied", detail: `${rowData.slug}`, life: 3000 });
     }
 
@@ -637,7 +637,7 @@ function Blogs() {
                                             image.append("image", blobInfo.blob());
                                             try {
                                                 const { data } = await Axios.post(`${API_URL}/image`, image);
-                                                success(`https://newlandpharmapvt.com/assets/${data}`);
+                                                success(`https://painosoma.com/assets/${data}`);
                                             } catch (error) {
                                                 console.log(error);
                                                 return;
@@ -752,7 +752,7 @@ function Blogs() {
                                                 {images2?.map((item, ind) => {
                                                     return (
                                                         <div className="col" key={ind}>
-                                                            <img src={`https://newlandpharmapvt.com/assets/${item}`} alt={item} width="250" className="mt-0 mx-auto mb-5 block shadow-2" />
+                                                            <img src={`https://painosoma.com/assets/${item}`} alt={item} width="250" className="mt-0 mx-auto mb-5 block shadow-2" />
                                                         </div>
                                                     );
                                                 })}
@@ -824,7 +824,7 @@ function Blogs() {
                                                     onClick={(e) => {
                                                         imageClick(e);
                                                     }}
-                                                    src={`https://newlandpharmapvt.com/assets/${item.image}`}
+                                                    src={`https://painosoma.com/assets/${item.image}`}
                                                     alt={item.alt_title}
                                                     style={{ width: "100%", height: "200px", objectFit: "cover", cursor: "pointer" }}
                                                     className="mt-0 mx-auto mb-5 block shadow-2"
@@ -862,7 +862,7 @@ function Blogs() {
                                                     onClick={(e) => {
                                                         imageClick(e);
                                                     }}
-                                                    src={`https://newlandpharmapvt.com/assets/${item.image}`}
+                                                    src={`https://painosoma.com/assets/${item.image}`}
                                                     alt={item.alt_title}
                                                     style={{ width: "100%", height: "200px", objectFit: "cover", cursor: "pointer" }}
                                                     className="mt-0 mx-auto mb-5 block shadow-2"

@@ -80,7 +80,7 @@ function Categories() {
     const saveProduct = async () => {
         setSubmitted(true);
 
-        // const res = await Axios.get(`https://server.newlandpharmapvt.com/api/category/${category.parent_category}`);
+        // const res = await Axios.get(`https://server.painosoma.com/api/category/${category.parent_category}`);
 
         // const getName = res.data.length > 0 ? res.data[0].cat_name : 'none'
 

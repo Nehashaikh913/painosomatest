@@ -158,11 +158,11 @@ function Author() {
     };
 
     const viewAuthor = (rowData) =>{
-        window.open(`https://newlandpharmapvt.com/author/${rowData.slug}`, "_blank");
+        window.open(`https://painosoma.com/author/${rowData.slug}`, "_blank");
     }
 
     const clickToCopy = (rowData)=>{
-        navigator.clipboard.writeText(`https://newlandpharmapvt.com/author/${rowData.slug}`)
+        navigator.clipboard.writeText(`https://painosoma.com/author/${rowData.slug}`)
         toast.current.show({ severity: "info", summary: "Successfully Copied", detail: `${rowData.slug}`, life: 3000 });
     }
 
@@ -237,7 +237,7 @@ function Author() {
     const imageTemplate = (rowData) => {
         return (
             <>
-                <img src={`https://newlandpharmapvt.com/assets/${rowData.image}`} alt={rowData.image} className="shadow-2" width="100" />
+                <img src={`https://painosoma.com/assets/${rowData.image}`} alt={rowData.image} className="shadow-2" width="100" />
             </>
         );
     };
@@ -329,7 +329,7 @@ function Author() {
                     </DataTable>
 
                     <Dialog visible={productDialog} style={{ width: "100%",maxHeight:"100vh" }} header="" modal className="p-fluid blogmodal" footer={productDialogFooter} onHide={hideDialog}>
-                        <div>{blog && <img src={`https://newlandpharmapvt.com/assets/${blog.image}`} alt={blog.image} className="shadow-2" width="100" />}</div>
+                        <div>{blog && <img src={`https://painosoma.com/assets/${blog.image}`} alt={blog.image} className="shadow-2" width="100" />}</div>
                         <form className="grid py-5 p-fluid">
                             <div className="col-12 md:col-4">
                                 {/* seosection  */}

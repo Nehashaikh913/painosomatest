@@ -124,7 +124,7 @@ function Gallery() {
     const imageBodyTemplate = (rowData) => {
         return (
             <>
-                <img src={`https://newlandpharmapvt.com/assets/${rowData.image}`} alt={rowData.image} className="shadow-2" width="100" />
+                <img src={`https://painosoma.com/assets/${rowData.image}`} alt={rowData.image} className="shadow-2" width="100" />
             </>
         );
     };
@@ -146,7 +146,7 @@ function Gallery() {
     };
 
     const clickToCopy = (rowData)=>{
-        navigator.clipboard.writeText(`https://newlandpharmapvt.com/assets/${rowData.image}`)
+        navigator.clipboard.writeText(`https://painosoma.com/assets/${rowData.image}`)
         toast.current.show({ severity: "info", summary: "Successfully Copied", detail: `${rowData.image}`, life: 3000 });
     }
 
