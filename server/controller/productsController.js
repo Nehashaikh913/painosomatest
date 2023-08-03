@@ -17,7 +17,7 @@ const addproduct = asyncHandler(async (req, res) => {
     const {product_name, product_price, product_slug,product_link, strength,parentcategory,subcategory, othercompany, otherprice, aboutheader, abouteditor, newsheader, newseditor, advanceheader, advanceeditor,faqeditor,title,description,segregation,referenceeditor,heading, status,date} = req.body;
     const image = req.file ? req.file.filename : req.body.image
     con.query(
-        "INSERT INTO products (image, product_name, product_price, product_slug, product_link, strength,parentcategory,subcategory, othercompany, otherprice, aboutheader, abouteditor, newsheader, newseditor, advanceheader, advanceeditor,segregation,referenceeditor,heading,faqeditor,title,description, status,date) value (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
+        "INSERT INTO products (image, product_name, product_price, product_slug, product_link, strength,parentcategory,subcategory, othercompany, otherprice, aboutheader, abouteditor, newsheader, newseditor, advanceheader, advanceeditor,segregation,referenceeditor,heading,faqeditor,title,description, status,date) value (?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?,?)",
         [image, product_name, product_price, product_slug, product_link, strength,parentcategory,subcategory, othercompany, otherprice, aboutheader, abouteditor, newsheader, newseditor, advanceheader, advanceeditor,segregation,referenceeditor,heading,faqeditor,title,description, status,date],
         (err, result) => {
             if (err) console.log(err);
