@@ -377,6 +377,9 @@ function Products() {
     };
 
     const onImageChange2 = (e, name) => {
+        if(images2.length > 0 && images2[0] == ''){
+            images2.splice(0,1)
+        }
         let selectedImages = [...images2];
         if (e.checked) selectedImages.push(e.value);
         else selectedImages.splice(selectedImages.indexOf(e.value), 1);
