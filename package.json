@@ -1,0 +1,26 @@
+{
+  "name": "painosomatest-1",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "server": "npm start --prefix server",
+    "client": "npm start --prefix admin",
+    "dev": "concurrently \"npm run server\" \"npm run client\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Nehashaikh913/painosomatest.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Nehashaikh913/painosomatest/issues"
+  },
+  "homepage": "https://github.com/Nehashaikh913/painosomatest#readme",
+  "devDependencies": {
+    "concurrently": "^8.2.0"
+  }
+}
